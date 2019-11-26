@@ -1,4 +1,3 @@
-In [ ]:
 #!/usr/bin/env bash
 #SBATCH -A SNIC2019-4-10
 #SBATCH -p hebbe
