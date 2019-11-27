@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-#SBATCH -A SNIC2019-4-10
-#SBATCH -p hebbe
-#SBATCH -J aligner
+#SBATCH -A SSS
+#SBATCH -p HHH
+#SBATCH -J GATK
 #SBATCH -n 2
 #SBATCH -t 0-08:00:00
 
