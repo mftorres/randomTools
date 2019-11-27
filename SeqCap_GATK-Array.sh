@@ -150,6 +150,8 @@ java -jar $EBROOTGATK/GenomeAnalysisTK.jar \
     
 #######################################################################
 # 5. filter with recalibration and call gVCF
+# called by sample, if multiple samples the gVCF can be called on all
+# by passing the sample BAMs with -I
 #######################################################################
 
 java -jar $EBROOTGATK/GenomeAnalysisTK.jar \
