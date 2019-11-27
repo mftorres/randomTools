@@ -17,7 +17,6 @@ module load picard/2.18.25-Java-1.8;
 
 # java -jar $EBROOTPICARD/picard.jar CreateSequenceDictionary \
 # REFERENCE=${REF} \
-# OUTPUT=/c3se/NOBACKUP/users/mariaji/palms_exons_final.dict;
 
 # mkdir rawbams;
 # mkdir indelvcf;
