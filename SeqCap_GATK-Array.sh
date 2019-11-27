@@ -6,7 +6,7 @@
 #SBATCH -t 0-08:00:00
 
 module load Anaconda3/5.3.0;
-source activate $SNIC_NOBACKUP/envs/bwa;
+source activate $NOBACKUP/envs/bwa;
 module load iccifort/2019.1.144-GCC-8.2.0-2.31.1;
 module load SAMtools/1.9;
 module load GATK/3.7-Java-1.8.0_112;
