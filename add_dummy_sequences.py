@@ -26,7 +26,7 @@ for filename in glob.glob(os.path.join(aln_paths,'%s'%(fileSuf))): # files have 
     sampleinfile_list=[]
     for line in open(filename,'r'):
         matchsample=re.search('(>[A-Za-z0-9]+)',line)
-        matchseq=re.search('^([AGTCNagtcn]+)',line)
+        matchseq=re.search('^([AGTCNagtcn-]+)',line)
         if matchsample:
             sample=matchsample.group(1)
             if sample not in sample_names:
