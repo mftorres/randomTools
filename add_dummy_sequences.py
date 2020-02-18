@@ -12,6 +12,11 @@ gene_seqfiles_dict={}
 notmissing_fromfile={}
 geneseq_length={}
 
+sample_names=[]
+genes=[]
+gene_seqfiles_dict={}
+notmissing_fromfile={}
+geneseq_length={}
 for filename in glob.glob(os.path.join(aln_paths,'%s'%(fileSuf))): # files have alignments
     gene=filename.split('\\')[-1]
     genes.append(gene.strip('.fas'))
@@ -28,10 +33,12 @@ for filename in glob.glob(os.path.join(aln_paths,'%s'%(fileSuf))): # files have 
                 sample_names.append(sample)
             if sample not in sampleinfile_list:
                 sampleinfile_list.append(sample)
+        seq=''
         if matchseq:
-            seq=matchseq.group(1)
+            seq=matchseq.group(0)
             seq_lenght=len(seq)
         sampleseq_infile[sample]=seq
+
     gene_seqfiles_dict[gene.strip('.fas')]=sampleseq_infile
     notmissing_fromfile[gene.strip('.fas')]=sampleinfile_list
     geneseq_length[gene.strip('.fas')]=seq_lenght
