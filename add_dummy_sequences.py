@@ -44,12 +44,13 @@ for filename in glob.glob(os.path.join(aln_paths,'%s'%(fileSuf))): # files have 
     geneseq_length[gene.strip('.fas')]=seq_lenght
 
 wdummies_path='./wdummies/'
+
 for gene in genes:
     new_fasta=open(os.path.join(wdummies_path,'%s_wd.fasta'%(gene)),'a')
     for sample in sample_names:
-        if sample in gene_seqfiles_dict[gene].keys():
-            new_fasta.write('%s\n%s\n'%(sample,gene_seqfiles_dict[gene][sample]))
-        elif sample not in gene_seqfiles_dict[gene].keys():
+        if sample in notmissing_fromfile[gene].keys():
+            new_fasta.write('%s\n%s\n'%(sample,notmissing_fromfile[gene][sample]))
+        elif sample not in notmissing_fromfile[gene].keys():
             new_fasta.write('%s\n%s\n'%(sample,'N'*geneseq_length[gene]))
     new_fasta.close()
-    print('Done')
+print('Done')
