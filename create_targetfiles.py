@@ -1,3 +1,10 @@
+%%bash
+perl -p -i -e 's/\n/@@/g' extracted_target_contigs_all_samples.fasta;
+perl -p -i -e 's/@@>/\n>/g' extracted_target_contigs_all_samples.fasta;
+perl -p -i -e 's/([0-9]+)@@/\1\n/g' extracted_target_contigs_all_samples.fasta;
+perl -p -i -e 's/@@//g' extracted_target_contigs_all_samples.fasta;
+
+%%python
 import re
 import os
 import glob
