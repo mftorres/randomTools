@@ -69,14 +69,14 @@ for key in dict_sample_ID.keys():
 
 file_configfile.write('\n[barcodes]\n')
 if adapterswitch == 'double':
-    for key,value in dict_sample_ID.iteritems():
+    for key,value in dict_sample_ID.items():
         for i in value:
             file_configfile.write('i7-%s:%s\n'%(key,i[0]))
-    for key,value in dict_sample_ID.iteritems():
+    for key,value in dict_sample_ID.items():
         for i in value:
             file_configfile.write('i5-%s:%s\n'%(key,i[1]))
 else:
-    for key,value in dict_sample_ID.iteritems():
+    for key,value in dict_sample_ID.items():
         for i in value:
             file_configfile.write('i7-%s:%s\n'%(key,i[0]))
 
