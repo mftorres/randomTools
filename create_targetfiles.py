@@ -1,8 +1,7 @@
 %%bash
-perl -p -i -e 's/\n/@@/g' extracted_target_contigs_all_samples.fasta;
-perl -p -i -e 's/@@>/\n>/g' extracted_target_contigs_all_samples.fasta;
-perl -p -i -e 's/([0-9]+)@@/\1\n/g' extracted_target_contigs_all_samples.fasta;
-perl -p -i -e 's/@@//g' extracted_target_contigs_all_samples.fasta;
+# single line fasta
+# remove line added at the head
+awk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}' < extracted_target_contigs_all_samples.fasta > extracted_target_contigs_all_samples_SL.fasta
 
 %%python
 import re
@@ -13,7 +12,7 @@ import time
 
 print(os.getcwd())
 path=os.getcwd()
-file='extracted_target_contigs_all_samples.fasta'
+file='extracted_target_contigs_all_samples_SL.fasta'
 
 Loci=[]
 Sample=[]
