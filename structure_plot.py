@@ -1,5 +1,5 @@
 # nano structure_plot.py
-# run in angsd environment
+# run in popgen environment
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -54,11 +54,11 @@ def plot_structure_results():
 #        print('---> knum: ',knum)
         names = ['k_%s'%(x+1) for x in range(0,knum,1)]
 #         print('names poplist',names, pop_list)
-        temp = pd.read_csv(filename, sep = '\s+', header = None, index_col = False,
+        temp = pd.read_csv(filename, sep = r'\s+', header = None, index_col = False,
                               names = names)
-        results = temp.sort_values(by = list(temp.columns), ascending = False)
-        results.reset_index(inplace = True)
-
+#        results = temp.sort_values(by = list(temp.columns), ascending = False)
+#        results.reset_index(inplace = True)
+        results = temp
         print(results.head(2))
 
         ax = plt.subplot(G[knum-1, 0], facecolor='w')
@@ -78,11 +78,11 @@ def plot_structure_results():
         [ax.spines[loc].set_visible(False) for loc in ['top', 'right', 'bottom']]
 
     for key in sample_VCForder.keys():
-        ax.text(x = key, y = 0, s = samples[sample_VCForder[key]],
+        ax.text(x = key, y = -6, s = samples[sample_VCForder[key]],
         rotation = 90, va = 'top', fontsize=15)
 
 
-    plt.savefig("{}_plot_test.pdf".format(args.file_prefix))
+    plt.savefig("{}_plot_test.png".format(args.file_prefix))
 
 if __name__ == "__main__":
 
